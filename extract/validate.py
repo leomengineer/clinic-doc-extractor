@@ -30,21 +30,20 @@ def validate_extraction(
     reasons: list[str] = []
     floor = _confidence_floor()
 
+    if payload.document_type == DocumentType.INTAKE_FORM:
+        required = INTAKE_REQUIRED
+        critical = INTAKE_CRITICAL
+        model_cls = IntakeForm
+    else:
+        required = REFERRAL_REQUIRED
+        critical = REFERRAL_CRITICAL
+        model_cls = ReferralEmail
+
     try:
-        if payload.document_type == DocumentType.INTAKE_FORM:
-            data = IntakeForm.model_validate(payload.data)
-            required = INTAKE_REQUIRED
-            critical = INTAKE_CRITICAL
-        else:
-            data = ReferralEmail.model_validate(payload.data)
-            required = REFERRAL_REQUIRED
-            critical = REFERRAL_CRITICAL
+        data = model_cls.model_validate(payload.data)
     except ValidationError as exc:
         # Fall back to empty typed model so callers still get a result
-        if payload.document_type == DocumentType.INTAKE_FORM:
-            data = IntakeForm()
-        else:
-            data = ReferralEmail()
+        data = model_cls()
         reasons.append(f"schema_validation_failed: {exc.error_count()} error(s)")
 
     for field in required:
