@@ -1,0 +1,18 @@
+From: Dr. Alan Cho <acho@riversidefamilydental.example>
+To: referrals@brightsmile.example
+Subject: Referral — Sarah Nguyen for endodontic eval
+
+Hi BrightSmile team,
+
+I'm referring my patient Sarah Nguyen (DOB 1995-07-22) for evaluation of
+possible root canal therapy on tooth #14. She has lingering sensitivity to
+cold for 3 weeks after a deep filling.
+
+Urgency: soon (ideally within 2 weeks)
+Contact: patient cell (951) 555-0177; my office (951) 555-0100
+
+Notes: No known drug allergies. Recent PA attached in chart (not included here).
+
+Thanks,
+Alan Cho, DDS
+Riverside Family Dental

@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.DS_Store
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Google service account credentials — never commit
+*-credentials.json
+service_account.json
+credentials.json
+
+# Batch inbox contents (keep the folder)
+inbox/*
+!inbox/.gitkeep
